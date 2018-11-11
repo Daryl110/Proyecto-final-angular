@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sel-personas',
+  selector: 'app-personas',
   templateUrl: './personas.component.html',
   styleUrls: ['./personas.component.scss']
 })
@@ -10,6 +10,7 @@ export class PersonasComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    $('#pru').html('Hola Mundo');
   }
 
 }

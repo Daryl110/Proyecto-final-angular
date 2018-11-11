@@ -1,0 +1,27 @@
+.container-fluid {
+    background: url('./../../../assets/login-background.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    height: 92.5vh;
+    justify-content: center;
+    align-items: center;
+    .login-box {
+        color: white;
+        background-color: white;
+        height: 60vh;
+        width: 50vw;
+        border-radius: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .container {
+            display: grid;
+            height: 34vh;
+            width: 40vw;
+            .form-text{
+                color: white !important;
+            }
+        }
+    }
+}
