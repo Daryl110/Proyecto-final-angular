@@ -1,5 +1,5 @@
 export interface Persona {
-    id: string,
+    _id: string,
     nombre: string,
     apellido: string,
     // tslint:disable-next-line:semicolon

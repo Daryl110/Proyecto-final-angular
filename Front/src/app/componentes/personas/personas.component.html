@@ -1,18 +1,98 @@
-<table class="table table-striped">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
-            <th scope="col">Edad</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-    </tbody>
-</table>
+<div class="container-fluid">
+    <div class="container">
+        <table class="table table-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <button mat-icon-button (click)="listar()">
+                        <i class="material-icons">replay</i>
+                    </button>
+                    <button mat-icon-button color="primary" (click)="verOcultarFormulario();">
+                        <i class="material-icons">add_circle</i>
+                    </button>
+                    <button mat-raised-button (click)="bool = !bool">
+                        Crear Usuario
+                    </button>
+                </tr>
+                <tr class="contenedor-form">
+                    <div class="formulario-persona" *ngIf="visible">
+                        <form #FrmPersona="ngForm" class="caja" (ngSubmit)="accionar(FrmPersona.value)">
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" style="display: none;" [ngModelOptions]="{standalone: true}"
+                                        [(ngModel)]="persona._id" [value]="persona._id" id="id">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" required
+                                        [(ngModel)]="persona.nombre" [value]="persona.nombre" name="nombre">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" id="apellido" placeholder="Apellido"
+                                        required [(ngModel)]="persona.apellido" name="apellido">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="number" class="form-control" id="edad" placeholder="Edad" required
+                                        [(ngModel)]="persona.edad" name="edad">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <button mat-raised-button color="primary">Guardar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col" style="text-align: center;">Acciones</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let persona of personas; index as i" class="thead-dark">
+                <tr>
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{persona.nombre}}</td>
+                    <td>{{persona.apellido}}</td>
+                    <td>{{persona.edad}}</td>
+                    <td>
+                        <div class="row">
+                            <button mat-icon-button color="warn" (click)="eliminar(persona._id)">
+                                <i class="material-icons">remove_circle</i>
+                            </button>
+                            <button mat-icon-button (click)="mandarFrmId(persona)">
+                                <i class="material-icons">create</i>
+                            </button>
+                        </div>
+                        <div class="row">
+                            
+                        </div>
+                        <h2 style="display: flex; justify-content: center;">
+                            Usuarios
+                        </h2>
+                        <div class="row">
+                            <table class="table table-dark tabla-interna">
+                                <thead class="thead-dark">
+                                    <th>Nombre de Usuario</th>
+                                </thead>
+                                <tbody *ngFor="let usuario of listarUsuariosPersona(persona._id)" class="thead-dark">
+                                    <td>{{usuario.nombreUsuario}}</td>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

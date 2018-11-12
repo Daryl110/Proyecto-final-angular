@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Persona } from 'src/app/_interfaces/persona';
+import { Usuario } from 'src/app/_interfaces/usuario';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PersonaService {
+export class UsuarioService {
 
   // tslint:disable-next-line:no-inferrable-types
-  private _url: string = 'http://localhost:8080/Persona';
-  private persona: Persona;
+  private _url: string = 'http://localhost:8080/Usuario';
+  private usuario: Usuario;
 
   constructor(private http: HttpClient) { }
 
@@ -21,11 +21,11 @@ export class PersonaService {
     return this.http.delete(this._url + '/' + id);
   }
 
-  public crear(persona: Persona) {
-    return this.http.post(this._url, persona);
+  public crear(usuario: Usuario) {
+    return this.http.post(this._url, usuario);
   }
 
-  public modificar(persona: Persona) {
-    return this.http.put(this._url + `/${persona._id}`, persona);
+  public modificar(usuario: Usuario) {
+    return this.http.put(this._url + `/${usuario._id}`, usuario);
   }
 }

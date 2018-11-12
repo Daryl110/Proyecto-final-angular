@@ -1,10 +1,13 @@
 let express = require('express');
 let bodyParser = require('body-parser');
-var path = require('path');
+let cors = require('cors');
+let path = require('path');
 
 let app = express();
 
 let router = require('./routes/routes');
+
+app.use(cors());
 
 app.use(express.static(path.join(__dirname, 'views')));
 

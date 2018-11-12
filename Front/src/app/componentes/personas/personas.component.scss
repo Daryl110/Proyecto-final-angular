@@ -1,0 +1,46 @@
+.container-fluid {
+    background: url('./../../../assets/login-background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 92.5vh;
+    .container {
+        table {
+            thead {
+                .contenedor-form {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .formulario-persona {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .caja {
+                            padding: 40px;
+                            background-color: white;
+                        }
+                        padding: 15px;
+                    }
+                }
+            }
+            tbody {
+                tr {
+                    .row {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .frmUsuario {
+                            margin-top: 15px;
+                            margin-bottom: 15px;
+                            padding: 40px;
+                            background-color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tabla-interna{
+    background-color: #212529 !important;
+}
